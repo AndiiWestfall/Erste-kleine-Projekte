@@ -1,0 +1,25 @@
+
+
+Artikel, die zwischen 0 und 20 (einschließlich) Taler kosten, werden um 20 % reduziert; 
+Artikel, die zwischen 20 (nicht einschließlich) und 50 Taler (einschließlich) kosten, werden um 40 % reduziert. 
+Alle anderen Artikel, also solche, die mehr als 50 Taler kosten, werden um 60 % reduziert.
+
+
+chaos =["old price: 40", "new price: 21", "old price: 29", "old price: 50", "new price: 101"]
+order = []
+
+for element in chaos:
+    if "new" in element:
+        order.append(int(element[10:]))
+    else:
+        price = int(element[10:])
+        if price <= 20:
+            price = price / 100 * 80
+        elif price > 20 and price < 51:
+            price = price / 100 * 60
+        else:
+            price = price / 100 * 40
+        order.append(price)
+        
+    
+print(order)
