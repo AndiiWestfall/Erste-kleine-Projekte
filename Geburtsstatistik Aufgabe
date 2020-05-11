@@ -25,9 +25,8 @@ with open("../data/names.csv", "r") as file:
            
 print(occurences)
 
-# Vorher: nach EInfügen des files
+# Vorher: nach Einfügen des files, um mir die erste Zeile anzusehen und zu schauen, wie ich die Splits benenne
 
 for line in file:
     print(line)
     break
-# um mir die erste Zeile anzusehen und zu schauen, wie ich die Splits benenne
