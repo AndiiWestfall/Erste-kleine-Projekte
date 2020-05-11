@@ -1,0 +1,45 @@
+# erste 5 Zeilen
+
+with open("../data/names.csv", "r") as file:
+    
+    counter = 0
+    
+    for line in file:
+        counter = counter + 1
+        print(line)
+        
+        if counter >= 4:
+            break
+
+# Wie oft wurde der Name Anna in Californien vergeben?
+# gewünschtes Ergebnis: 12345, Anna, 1910, F, CA, 999
+
+xs = []
+ys = []
+
+name = "Anna"
+gender = "F"
+state = "CA"
+
+with open("../data/names.csv", "r") as file:
+    counter = 0
+    for line in file:
+        counter = counter + 1
+        
+        line_splitted = line.strip().split(",")
+        if line_splitted[1] == name and line_splitted[3] == gender and line_splitted[4] == state:
+            xs.append(line_splitted[2])
+            ys.append(line_splitted[5])
+            # print(line_splitted)
+            # break
+            
+print(xs)
+print(ys)
+# 12345,Anna,1910,F,CA,999
+# 32345,Anna,1911,F,CA,555
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+plt.plot(xs, ys)
+plt.show()
