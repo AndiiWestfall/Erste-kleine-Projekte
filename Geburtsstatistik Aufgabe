@@ -3,23 +3,26 @@ Finde heraus, wie oft der Name "Max" als männlicher Vorname in Kalifornien
 zwischen 1950 und 2000 (jeweils einschließlich) vergeben wurde! 
 Verwende dazu die bereitgestellte .csv - Datei (../data/names.csv)!
 
-
-name = "Max"
-state = "CA"
-year_from = 1950
-year_to = 2001
+occurences = 0
 
 with open("../data/names.csv", "r") as file:
-    counter = 0
     for line in file:
-        
         line_splitted = line.strip().split(",")
+ 
         file_name = line_splitted[1]
-        file_state = line_splitted[4]
         file_year = line_splitted[2]
-            
-        if file_name == name and file_state == state and int(file_year) in range(year_from, year_to):
-            counter = counter + 1
-    print(counter)
+        file_gender = line_splitted[3]
+        file_state = line_splitted[4]
+        file_count = line_splitted[5]
+        
+        if file_year == "Year":
+            continue
+        
+        year = int(line_splitted[2])
+        
+        if file_name == "Max" and year >= 1950 and year <= 2000 and file_gender == "M" and file_state == "CA":
+            occurences = occurences + int(file_count)
+           
+print(occurences)
 
     
